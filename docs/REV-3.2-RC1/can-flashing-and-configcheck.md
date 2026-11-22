@@ -7,7 +7,7 @@ sudo tee /etc/network/interfaces.d/can0 << 'EOF'
 allow-hotplug can0
 iface can0 can static
     bitrate 1000000
-    up ifconfig \$IFACE txqueuelen 1024
+    up ifconfig $IFACE txqueuelen 1024
 EOF
 sudo ifup can0
 ip -details link show can0
@@ -15,10 +15,13 @@ ip -details link show can0
 
 ## 2. Прошивка BTT Octopus v1.1 (USB-to-CAN bridge)
 В режиме `USB-to-CAN bridge` основная плата прошивается через USB DFU (`BOOT0` + `RESET`).
-Параметры `make menuconfig` в `~/klipper`:
+Штатный микроконтроллер для **BTT Octopus v1.1** — **STM32F446** с кварцем **12 MHz** *(примечание: на некоторых партиях устанавливался чип STM32F429 с кварцем 8 MHz — перед сборкой обязательно сверить маркировку на корпусе чипа)*.
+
+Параметры `make menuconfig` в `~/klipper` для штатной Octopus v1.1 (STM32F446):
 - **Micro-controller Architecture:** `STMicroelectronics STM32`
-- **Processor model:** `STM32F446` (кварц `12 MHz`) или `STM32F429` (кварц `8 MHz` — сверить маркировку чипа на плате!)
+- **Processor model:** `STM32F446`
 - **Bootloader offset:** `32KiB bootloader`
+- **Clock Reference:** `12 MHz crystal`
 - **Communication interface:** `USB to CAN bus bridge (USB on PA11/PA12)`
 - **CAN bus interface:** `CAN bus (on PD0/PD1)` (разъём RJ12)
 - **CAN bus speed:** `1000000`
@@ -52,7 +55,7 @@ make flash FLASH_DEVICE=0483:df11
 
 ## 4. Проверка конфига и терминаторов
 - Сопротивление между `CAN_H` и `CAN_L` при выключенном питании должно составлять **~60 Ом** (резистор 120 Ом у разъёма RJ12 Octopus + джампер `120R` на конечной EBB36; на промежуточной EBB36 джампер `120R` снят).
-- Проверка парсера Klipper на Linux-хосте (при подключённых MCU или в режиме отладки):
+- Проверка парсера Klipper на Linux-хосте:
   ```bash
   ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer_data/config/printer.cfg -o /tmp/test.gcode -l /tmp/klippy.log
   ```
