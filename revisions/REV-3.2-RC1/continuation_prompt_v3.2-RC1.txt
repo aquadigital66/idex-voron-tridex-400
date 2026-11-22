@@ -1,5 +1,5 @@
 ТЕХНИЧЕСКИЙ КОНТЕКСТ ПРОЕКТА: ЗАКРЫТЫЙ IDEX 3D-ПРИНТЕР (VORON TRIDEX) 400×400×400 ММ
-РЕДАКЦИЯ: REV.3.2-RC1 (DRAFT) — СИНХРОНИЗИРОВАНО С REPO aquadigital66/idex-voron-tridex-400 (COMMIT 8e21a50)
+РЕДАКЦИЯ: REV.3.2-RC1 (DRAFT) — СИНХРОНИЗИРОВАНО С REPO aquadigital66/idex-voron-tridex-400 (COMMIT after c6e8bc2)
 
 1. БАЗОВАЯ АРХИТЕКТУРА И СРЕДА:
 - Кинематика: Cartesian + [dual_carriage] (2 независимых ремня GT2 9 мм на X0/X1, 2 синхронных мотора Y/Y1 с концевиками ^PG10 / ^PG11 на STOP2/STOP3, 3 винта T8 на Z с Z_TILT_ADJUST).
