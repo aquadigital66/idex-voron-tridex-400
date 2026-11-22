@@ -52,6 +52,7 @@
 
 | Узел | Что искать (точное название) | Запрос / Официальная документация | Кол-во |
 | :--- | :--- | :--- | :---: |
+| **Управляющий хост Klipper** | Одноплатный ПК (Orange Pi Zero 3 / BTT Pi / Raspberry Pi 4) или мини-ПК x86 + microSD / БП 5В 3А (или DC-DC 24В→5В) | `Orange Pi Zero 3` / `BTT Pi V1.2` | 1 компл. |
 | **Основная плата** | **BIGTREETECH Octopus V1.1** (чип `STM32F446`, 12 MHz) | [GitHub: BTT Octopus](https://github.com/bigtreetech/BIGTREETECH-Octopus) / `BTT Octopus V1.1` | 1 шт. |
 | **Драйверы моторов** | Драйвер шагового двигателя **TMC2209 V1.3** (режим UART) | `BTT TMC2209 V1.3 UART` | 7–8 шт. |
 | **Инструментальные платы** | **BIGTREETECH EBB36 V1.2** (без MAX31865, с джампером PT1000) | [GitHub: BTT EBB](https://github.com/bigtreetech/BIGTREETECH-EBB) / `BTT EBB36 V1.2 CAN` | 2 шт. |
