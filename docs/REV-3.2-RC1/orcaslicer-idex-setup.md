@@ -19,16 +19,16 @@ BED_MESH_CALIBRATE                           ; Штатное построени
 IDEX_INIT                                    ; Возврат T0 в парковочный док после замера сетки перед нагревом сопел
 
 ; Прогрев только используемых в детали экструдеров
-{if is_extruder_used}
+{if is_extruder_used[0]}
 M104 T0 S[nozzle_temperature_initial_layer]
 {endif}
-{if is_extruder_used}
+{if is_extruder_used[1]}
 M104 T1 S[nozzle_temperature_initial_layer]
 {endif}
-{if is_extruder_used}
+{if is_extruder_used[0]}
 M109 T0 S[nozzle_temperature_initial_layer]
 {endif}
-{if is_extruder_used}
+{if is_extruder_used[1]}
 M109 T1 S[nozzle_temperature_initial_layer]
 {endif}
 
